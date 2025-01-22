@@ -127,9 +127,11 @@ Azure AI Services の REST API を直接利用するコードを書くことも�
 1. Visual Studio Code で、自分の言語の好みに応じて **C-Sharp** または **Python** フォルダーの下にある **sdk-client** フォルダーを展開します。その後、ターミナルで `cd ../sdk-client` を実行して、該当する **sdk-client** フォルダーに移動します。
    
     C# または Python フォルダの中の **sdk-client** フォルダーを見つけます。
+
     ![sdk-clientフォルダー](./img/sdk-client-folders.png)
 
     ターミナルで`cd`コマンドを使って、**sdk-client** フォルダーに移動します。
+    
     ![cd sdk-client](./img/cd-sdk-client.png)
 
 2. 自分の言語に応じた以下のコマンドを実行して、Text Analytics SDK パッケージをインストールします。
@@ -190,7 +192,7 @@ Azure AI Services の REST API を直接利用するコードを書くことも�
     ![dotnet run](./img/cs-sdk-client.png)
 
     **Python**:実行結果
-    
+
     ![python sdk-client.py](./img/python-sdk-client.png)
 
 > **注意**: Unicode 文字セットが必要な一部の言語は、このシンプルなコンソールアプリケーションでは認識されない場合があります。
