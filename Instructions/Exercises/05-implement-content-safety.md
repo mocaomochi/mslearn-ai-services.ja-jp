@@ -1,120 +1,165 @@
 ---
 lab:
-  title: Azure AI Content Safety を実装する
+    title: 'Azure AI Content Safety での責任ある AI の使用'
+    module: 'Module 2 - Azure AI サービスの使用を開始する'
 ---
 
-# Azure AI Content Safety を実装する
+# Azure AI Content Safety の実装
 
 この演習では、Content Safety リソースをプロビジョニングし、Azure AI Studio でリソースをテストし、コードでリソースをテストします。
 
 ## *Content Safety* リソースをプロビジョニングする
 
-まだ所有していない場合は、Azure サブスクリプションの **Content Safety** リソースをプロビジョニングする必要があります。
+まだ持っていない場合は、Azure サブスクリプションに **Content Safety** リソースをプロビジョニングする必要があります。
 
-1. Azure portal (`https://portal.azure.com`) を開き、ご利用の Azure サブスクリプションに関連付けられている Microsoft アカウントを使用してサインインします。
-1. **[リソースの作成]** を選択します。
-1. 検索フィールドで、**Content Safety** を検索します。 次に、検索結果の **[Azure AI Content Safety]** で **[作成]** を選択します。
-1. 次の設定を使用してリソースをプロビジョニングします。
-    - **[サブスクリプション]**: *お使いの Azure サブスクリプション*。
-    - **リソース グループ**: *リソース グループを選択または作成します*。
-    - **[リージョン]**: **[米国東部]** を選択します。
-    - **[名前]**: *一意の名前を入力します*。
-    - **価格レベル**: F0 が利用できない場合、**F0** (*Free*) または **S** (*Standard*) を選択します。
-1. **[確認および作成]** を選び、**[作成]** を選んでリソースをプロビジョニングします。
-1. デプロイが完了するまで待ってから、デプロイされたリソースに移動します。
-1. 左側のナビゲーション バーで **[アクセス制御]** を選択し、**[+ 追加]** および **[ロールの割り当ての追加]** を選択します。
-1. 下にスクロールして、**Cognitive Services ユーザー** ロールを選択し、**[次へ]** を選択します。
-1. このロールにアカウントを追加し、**[レビュー + 割り当て]** を選択します。
-1. 左側のナビゲーション バーで、**[リソース管理]** を選択し、**[キーとエンドポイント]** を選択します。 後でキーをコピーできるように、このページは開いたままにします。
+1. `https://portal.azure.com` で Azure ポータルを開き、Azure サブスクリプションに関連付けられている Microsoft アカウントでサインインします。
+1. **リソースの作成** を選択します。
+1. 検索フィールドに **Content Safety** と入力し、結果から **Azure AI Content Safety** の下にある **作成** を選択します。
+    ![Search Azure AI Content Safery](./img/Search_Azure_AI_Content_Safety.png)
+2. 次の設定を使用してリソースをプロビジョニングします：
+    - **サブスクリプション**: *あなたの Azure サブスクリプション*。
+    - **リソースグループ**: *既存のリソースグループを選択するか、新しいリソースグループを作成*。
+    - **リージョン**: **East US** を選択。
+    - **名前**: *一意の名前を入力*。
+    - **価格レベル**: **F0** (*無料*) または F0 が利用できない場合は **S** (*標準*) を選択。
+    ![Create Azure AI Content Safety](./img/create-azure-content-safety.png)
+3. **確認および作成** を選択し、次に **作成** を選択してリソースをプロビジョニングします。
+4. デプロイが完了するのを待ち、リソースに移動します。
+5. 左側のナビゲーションバーで **アクセス制御** を選択し、次に **+ 追加** および **ロールの割り当ての追加** を選択します。
+    ![Assign Role](./img/content-safety-assign-role.png) 
+6. 下にスクロールして **Cognitive Services User** ロールを選択し、**次へ** を選択します。
+    ![Select Congnitive User Role](./img/select-cognitive-services-user.png)
+7. このロールに自分のアカウントを追加し、**レビューと割り当て** を選択します。
+    ![Add an user](./img/add-an-user-to-assigned-role.png)
+8. 左側のナビゲーションバーで **リソース管理** を選択し、**キーとエンドポイント** を選択します。後でキーをコピーできるようにこのページを開いたままにしておきます。
+    ![Key and Endpoint](./img/content-safety-key-endpoint.png)
 
-## Azure AI Content Safety のプロンプト シールドを使用する
+## Azure AI Content Safety プロンプトシールドの使用
 
-この演習では、Azure AI Studio を使用して、2 つのサンプル入力で Content Safety のプロンプト シールドをテストします。 1 つはユーザー プロンプトをシミュレートし、もう 1 つは安全でない可能性のあるテキストが埋め込まれたドキュメントをシミュレートします。
+この演習では、Azure AI Studio を使用して、Content Safety プロンプトシールドを2つのサンプル入力でテストします。1つはユーザープロンプトをシミュレートし、もう1つは潜在的に安全でないテキストが埋め込まれたドキュメントをシミュレートします。
 
-1. 別のブラウザー タブで [Azure AI Studio](https://ai.azure.com/explore/contentsafety) の Content Safety ページを開いてサインインします。
-1. **[テキスト コンテンツのモデレート]** で、**[試してみる]** を選択します。
-1. **[テキスト コンテンツのモデレート]** ページの **Azure AI サービス**で、前に作成した Content Safety リソースを選択します。
-1. **[1 文で複数のリスク カテゴリ]** を選択します。 潜在的な問題については、ドキュメントのテキストを確認してください。
-1. **[テストの実行]** を選択し、結果を確認します。
-1. 必要に応じて、しきい値レベルを変更し、**[テストの実行]** を選択します。
-1. 左側のナビゲーション バーで、 **[テキスト用に保護された素材の検出]** を選択します。
-1. **[保護された歌詞]** を選択し、これらは公開済みの曲の歌詞であることに注意してください。
-1. **[テストの実行]** を選択し、結果を確認します。
-1. 左側のナビゲーション バーで、**[画像コンテンツのモデレート]** を選択します。
-1. **[自傷コンテンツ]** を選択します。
-1. AI Studio では、すべての画像が既定でぼやけています。 また、サンプル内の性的コンテンツは非常に穏健であることにも注意する必要があります。
-1. **[テストの実行]** を選択し、結果を確認します。
-1. 左側のナビゲーション バーで、**[プロンプト シールド]** を選択します
-1. **[プロンプト シールド] ページ**の **[Azure AI サービス]** で、先ほど作成した Content Safety リソースを選択します。
-1. **[プロンプトおよび攻撃コンテンツのドキュメント化]** を選択します。 潜在的な問題について、ユーザー プロンプトとドキュメント テキストを確認します。
-1. **[テストの実行]** を選択します。
-1. **[結果の表示]** で、ユーザー プロンプトとドキュメントの両方で脱獄攻撃が検出されたことを確認します。
+1. 別のブラウザタブで [Azure AI Studio](https://ai.azure.com/explore/contentsafety) の Content Safety ページを開き、サインインします。
+1. **適度なテキストコンテンツ** の中の **試してみる** を選択します。
+   ![Text Contents Moderation](./img/text-contents-moderation.png)
+2. **適度なテキストコンテンツ** ページで、**Azure AI サービス** の下に先ほど作成した Content Safety リソースを選択します。
+   ![Select your contents safety resource](./img/select-your-azure-ai-content-safety-resource.png)
+3. **1つの文に複数のリスクカテゴリがあります** を選択し、ドキュメントテキストの潜在的な問題を確認します。
+   ![Multi Risk Category in a sentence](./img/multi-risk-category-in-a-sentence.png) 
+4. **テストを実行** を選択し、結果を確認します。
+   ![Run Test](./img/Run-Test.png)
+5. 必要に応じてしきい値レベルを変更し、再度 **テストを実行** を選択します。
+6. Content Safety のページに戻り **保護されたマテリアルの検出-テキスト用** を選択します。
+   ![Select protected materials for text](./img/select-protected-material-for-text.png)
+7. **保護された歌詞** を選択し、これが公開された歌の歌詞であることを確認します。
+   ![Protected Lyrics](./img/Protected-Lyrics.png)
+8. **テストを実行** を選択し、結果を確認します。
+9. Content Safetyのページに戻り **適度な画像コンテンツ** を選択します。
+   ![Select image content moderation](./img/select-image-content-moderation.png)
+10. **自傷行為のコンテンツ** を選択します。
+   ![Select self-harm content](./img/select-self-harm-content.png)
+11. AI Studio ではすべての画像がデフォルトでぼかされていることに注意してください。また、サンプルの性的コンテンツは非常に軽度であることも認識しておいてください。
+12. **テストを実行** を選択し、結果を確認します。
+13. Content Safetyのページに戻り **プロンプトシールド** を選択します。
+   ![Select Prompt Shield](./img/select-prompt-shield.png)
+14. **プロンプトシールド** ページで、**Azure AI サービス** の下に先ほど作成した Content Safety リソースを選択します。
+15. **プロンプト & ドキュメント攻撃コンテンツ** を選択し、ユーザープロンプトとドキュメントテキストの潜在的な問題を確認します。
+   ![Select prompt and document attack content](./img/select-prompt-and-document-attack-content.png)
+16. **テストを実行** を選択します。
+17. **結果を表示** で、ユーザープロンプトとドキュメントの両方で Jailbreak 攻撃が検出されたことを確認します。
+    ![Result Jailbreak](./img/result-jailbreak.png)
 
     > [!TIP]
-    > コードは、AI Studio のすべてのサンプルで使用できます。
+    > AI Studio にはすべてのサンプルのコードが用意されています。
 
-1. **[次の手順]** の **[コードの表示]** で、**[コードの表示]** を選択します。 **サンプル コード** ウィンドウが表示されます。
-1. 下矢印を使用して Python または C# を選択し、**[コピー]** を選択してサンプル コードをクリップボードにコピーします。
-1. **サンプル コード**画面を閉じます。
+18. **次のステップ**の下にある**コードの表示**メニューを選択し、**コードの表示**ボタンを選択します。**サンプルコード**ウィンドウが表示されます。
+19. 下向き矢印を使ってPythonまたはC#を選び、**コピー**を選択してサンプルコードをクリップボードにコピーします。
+20. **サンプルコード**画面を閉じます。
+    ![Sample Code](./img/sample-code.png)
+    ### アプリケーションの設定
 
-### アプリケーションを構成する
-
-次に、C# または Python でアプリケーションを作成します。
+    これから、C# または Python でアプリケーションを作成します。
 
 #### C#
 
-##### 前提条件
+##### 事前準備
+* [Visual Studio Code](https://code.visualstudio.com/) をインストールします。対応しているプラットフォームについては[こちら](https://code.visualstudio.com/docs/supporting/requirements#_platforms)を確認してください。
+* この演習では、ターゲットフレームワークとして [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) を使用します。
+* Visual Studio Code に [C# 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) をインストールします。
+* 必要に応じ、Visual Studio Code を日本語化してください。
+  
 
-* [サポートされているプラットフォーム](https://code.visualstudio.com/docs/supporting/requirements#_platforms)のいずれかにインストールされた [Visual Studio Code](https://code.visualstudio.com/)。
-* [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) がこの演習のターゲット フレームワークです。
-* Visual Studio Code 用の [C# 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)。
+  > Visual Studio Codeを日本語化する方法
+  >  1. Visual Studio Code を起動します。
+  >  2. 左下の歯車アイコン（設定）をクリックします。
+  >  3. 「Command Palette...」を選択します。
+  >  4. 「Configure Display Language」と入力し、Enter キーを押します。
+  >  5. 言語リストが表示されるので、「Japanese」を選択します。
+  >  6. 再起動を促すメッセージが表示されるので、「Restart」をクリックします。
+  >  7. Visual Studio Code が再起動し、日本語化されます。
 
-##### 設定
 
-次の手順を実行して、演習用に Visual Studio Code を準備します。
+##### セットアップ
 
-1. Visual Studio Code を起動し、エクスプローラー ビューで **[コンソール アプリ]** を選択して **[.NET プロジェクトの作成]** をクリックします。
-1. コンピューター上のフォルダーを選択し、プロジェクトに名前を付けます。 **[プロジェクトの作成]** を選択し、警告メッセージを確認します。
-1. [エクスプローラー] ウィンドウで、ソリューション エクスプローラーを展開し、**[Program.cs]** を選択します。
-1. **[実行]** -> **[デバッグなしで実行]** を選択して、プロジェクトをビルドして実行します。 
-1. ソリューション エクスプローラーで、C# プロジェクトを右クリックし、**[NuGet パッケージの追加]** を選択します。
-1. **Azure.AI.TextAnalytics** を検索し、最新バージョンを選択します。
-1. 2 つ目の NuGet パッケージである **Microsoft.Extensions.Configuration.Json 8.0.0** を検索します。 これで、プロジェクト ファイルに 2 つの NuGet パッケージが一覧表示されます。
+Visual Studio Code を演習のために準備するには、次の手順を実行します。
 
-##### コードの追加
+1. Visual Studio Code を起動し、エクスプローラービューで **.NET プロジェクトを作成** をクリックし、**コンソールアプリ** を選択します。
+   ![Create Dot Net Project](./img/create-dot-net-project.png)
+2. コンピューター上のフォルダーを選択し、プロジェクトに名前を付けます。**プロジェクトを作成します** を選択します。もし警告メッセージが表示されたら内容を確認します。
+   ![Name the new project](./img/name-new-project.png)
+   ![Create a project](./img/create-a-project.png)
+3. エクスプローラー ペインで、ソリューション エクスプローラーを展開し、**Program.cs** を選択します。
+   ![Open Program.cs](./img/open-program-cs.png)
+4. **実行** -> **デバッグなしで実行** を選択してプロジェクトをビルドおよび実行します。
+5. ソリューション エクスプローラーで、C# プロジェクトを右クリックし、**NuGetパッケージを追加** を選択します。
+   ![Add NuGet Package](./img/add-nuget-package.png)
+   > ここで .Net 8.0 SDKのインストールを要求された場合は、OSに適したSDKのパッケージを選択してインストールしてください。
+6. **Azure.AI.TextAnalytics** を検索し、最新バージョンを選択します。
+   ![Search Azure.AI.TextAnalytics package](./img/search-azure-ai-textanalytics-package.png)
+7. 2つ目の NuGet パッケージ **Microsoft.Extensions.Configuration.Json** を検索し、バージョン**8.0.1** を選択します。プロジェクトファイルには、2つの NuGet パッケージがリストされているはずです。
+   ![Search Microsoft.Extention.Configuration.Json](./img/search-microsoft-extension-configutaion-package.png)
+   ![Project File](./img/cs-project-file.png)
 
-1. 前にコピーしたサンプル コードを **ItemGroup** セクションに貼り付けます。
-1. 下にスクロールして、*[自分のサブスクリプションの _キーとエンドポイントに置き換える]* を探します。
-1. Azure portal の [キーとエンドポイント] ページで、いずれかのキー (1 または 2) をコピーします。 この値を **<your_subscription_key>** に置き換えます。
-1. Azure portal の [キーとエンドポイント] ページで、エンドポイントをコピーします。 この値をコードに貼り付けて、**<your_endpoint_value>** を置き換えます。
-1. **Azure AI Studio** で、**ユーザー プロンプト**の値をコピーします。 これをコードに貼り付けて、**<test_user_prompt>** を置き換えます。
-1. **<this_is_a_document_source>** まで下にスクロールし、このコード行を削除します。
-1. **Azure AI Studio** で、**ドキュメント**の値をコピーします。
-1. **<this_is_another_document_source>** まで下にスクロールし、ドキュメントの値を貼り付けます。
-1. **[実行]** -> **[デバッグなしで実行]** を選択し、攻撃が検出されたことを確認します。 
+
+##### コードを追加する
+
+1. **Program.cs** ファイルの中身を全て削除し、先ほどコピーしたC#のサンプルコードをコピーします。
+1. *Replace with your own subscription _key and endpoint* のコメント行を見つけます。
+1. Azure ポータルで、キーとエンドポイントのページからキーの1つ（1または2）をコピーし、この値で **<your_subscription_key>** を置き換えます。
+1. Azure ポータルで、エンドポイントをコピーし、この値で **<your_endpoint_value>** を置き換えます。
+2.  **Azure AI Studio** で、**User prompt** の値をコピーし、この値で **<test_user_prompt>** を置き換えます。
+3. **<this_is_a_document_source>** までスクロールし、この行のコードを削除します。
+4. **Azure AI Studio** で、**Document** の値をコピーします。
+5. **<this_is_another_document_source>** までスクロールし、ドキュメントの値を貼り付けます。
+6. **実行** -> **デバッグなしで実行** を選択し、攻撃が検出されたことを確認します。
+   実行結果
+   ![Prompt & document attack content result](./img/prompt-document-attack-detected-result.png)
 
 #### Python
 
-##### 前提条件
+##### 事前準備
 
-* [サポートされているプラットフォーム](https://code.visualstudio.com/docs/supporting/requirements#_platforms)のいずれかにインストールされた [Visual Studio Code](https://code.visualstudio.com/)。
+* [Visual Studio Code](https://code.visualstudio.com/) をインストールします。対応しているプラットフォームについては[こちら](https://code.visualstudio.com/docs/supporting/requirements#_platforms)を確認してください。
+* Visual Studio Code に [Python 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-python.python) をインストールします。
+* [requests モジュール](https://pypi.org/project/requests/) をインストールします。
+* 必要に応じ、Visual Studio Code を日本語化してください。
 
-* Visual Studio Code 用の [Python 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-python.python)がインストールされています。
+##### セットアップ
 
-* [要求モジュール](https://pypi.org/project/requests/)がインストールされています。
+1. **.py** 拡張子の新しい Python ファイルを作成し、適切な名前を付けます。
+2. 先ほどコピーしたPythonのサンプルコードを貼り付けます。
+3. *Replace with your own subscription _key and endpoint* というタイトルのセクションまでスクロールします。
+4. Azure ポータルで、キーとエンドポイントのページからキーの1つ（1または2）をコピーし、この値で **<your_subscription_key>** を置き換えます。
+5. Azure ポータルで、エンドポイントをコピーし、この値で **<your_endpoint_value>** を置き換えます。
+6. **Azure AI Studio** で、**User prompt** の値をコピーし、この値で **<test_user_prompt>** を置き換えます。
+7. **<this_is_a_document_source>** までスクロールし、この行のコードを削除します。
+8. **Azure AI Studio** で、**Document** の値をコピーします。
+9. **<this_is_another_document_source>** までスクロールし、ドキュメントの値を貼り付けます。
+10. ファイルの統合ターミナルからプログラムを実行します。例：
 
-1. **.py** 拡張子を持つ新しい Python ファイルを作成し、適切な名前を付けます。
-1. 前にコピーしたサンプル コードを貼り付けます。
-1. 下にスクロールして、*[自分のサブスクリプションの _キーとエンドポイントに置き換える]* というタイトルのセクションを探します。
-1. Azure portal の [キーとエンドポイント] ページで、いずれかのキー (1 または 2) をコピーします。 この値を **<your_subscription_key>** に置き換えます。
-1. Azure portal の [キーとエンドポイント] ページで、エンドポイントをコピーします。 この値をコードに貼り付けて、**<your_endpoint_value>** を置き換えます。
-1. **Azure AI Studio** で、**ユーザー プロンプト**の値をコピーします。 これをコードに貼り付けて、**<test_user_prompt>** を置き換えます。
-1. **<this_is_a_document_source>** まで下にスクロールし、このコード行を削除します。
-1. **Azure AI Studio** で、**ドキュメント**の値をコピーします。
-1. **<this_is_another_document_source>** まで下にスクロールし、ドキュメントの値を貼り付けます。
-1. ファイルの統合ターミナルから、次のようにプログラムを実行します。
+    - `python .¥prompt-shield.py`
 
-    - `.\prompt-shield.py`
+11. 攻撃が検出されたことを確認します。
+    実行結果
+    ![Python results](./img/python-result.png)
+12. 必要に応じて、異なるテストコンテンツやドキュメントの値で実験してみてください。
 
-1. 攻撃が検出されたことを検証します。
-1. 必要に応じて、さまざまなテスト コンテンツとドキュメント値を試すことができます。
