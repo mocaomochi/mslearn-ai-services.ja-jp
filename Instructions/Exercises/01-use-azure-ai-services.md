@@ -92,7 +92,9 @@ Azure AI Services の API は REST という仕組みを使っていて、HTTP �
     - サービスからの応答は JSON オブジェクトとして返され、クライアントアプリケーションがそれを解析します。
 
 4. **rest-client** フォルダの上で右クリックをし, select *統合ターミナルで開く* を選択し、以下のコマンドを実行します。
+   
     **C#**
+
     ![Open Integrated Terminal](./img/open-terminal-cs.png)
 
     ```
@@ -100,7 +102,9 @@ Azure AI Services の API は REST という仕組みを使っていて、HTTP �
     ```
 
     **Python**
+
     ![Open Integrated Terminal](./img/open-terminal-python.png)
+
     ```
     pip install python-dotenv
     python rest-client.py
@@ -109,9 +113,11 @@ Azure AI Services の API は REST という仕組みを使っていて、HTTP �
 6. アプリケーションのテストが終わったら、「quit」と入力してプログラムを終了してください。
    
     **C#**:実行結果
+
     ![dotnet run 実行結果](./img/dotnet-run.png)
 
     **Python**:実行結果
+
     ![pip と rest-client.py の実行結果](./img/python-rest-client.png)
 
 ## SDKの利用方法
@@ -133,7 +139,9 @@ Azure AI Services の REST API を直接利用するコードを書くことも�
     ```
     dotnet add package Azure.AI.TextAnalytics --version 5.3.0
     ```
+    
     実行結果:
+
     ![dotnet add package Azure.AI.TextAnalytics](./img/dotnet-add-package.png)
 
     **Python**
@@ -141,7 +149,9 @@ Azure AI Services の REST API を直接利用するコードを書くことも�
     ```
     pip install azure-ai-textanalytics==5.3.0
     ```
+
     実行結果:
+
     ![pip install azure-ai-textanalytics](./img/pip-install-azure-ai-textanalytics.png)
 
 3. **sdk-client** フォルダーの中に設定用のファイルがあることを確認します。
@@ -176,9 +186,11 @@ Azure AI Services の REST API を直接利用するコードを書くことも�
 7. アプリケーションのテストが終わったら、「quit」と入力してプログラムを終了してください。
 
     **C#**:実行結果
+
     ![dotnet run](./img/cs-sdk-client.png)
 
     **Python**:実行結果
+    
     ![python sdk-client.py](./img/python-sdk-client.png)
 
 > **注意**: Unicode 文字セットが必要な一部の言語は、このシンプルなコンソールアプリケーションでは認識されない場合があります。
