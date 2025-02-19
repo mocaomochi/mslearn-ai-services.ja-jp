@@ -2,7 +2,7 @@ remote_theme: MicrosoftLearning/Jekyll-Theme
 # remote_theme: just-the-docs/just-the-docs@v0.10.0
 # theme: jekyll-theme-minimal
 exclude:
-#  - readme.md
+  - readme.md
   - .github/
 header_pages:
   - index.html
@@ -17,5 +17,3 @@ markdown: kramdown
 kramdown:
    syntax_highlighter_opts:
       disable : true
-# For copy button on code
-enable_copy_code_button: true
