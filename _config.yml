@@ -6,11 +6,7 @@ exclude:
   - .github/
 header_pages:
   - index.html
-<<<<<<< HEAD
 author: Toshimi Hatanaka (Microsoft Worldwide Learning)
-=======
-author: Toshimi Hatanaka
->>>>>>> 1eb15dfcdb4ae7b88793057f747b9eee90edbca0
 twitter_username: toshimin8
 github_username:  mocaomochi
 plugins:
@@ -20,4 +16,4 @@ plugins:
 markdown: kramdown
 kramdown:
    syntax_highlighter_opts:
-      disable : true
+      disable : falae
