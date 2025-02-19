@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1h/X1UEw2iBOYn1QcdivXuRf1ie+baqzXhJNQ6OaaGpIJgxglK86PE4h7ivDKMrD+2oPFn+5P+/+ZmeBNL3gVw==",
+  "dgSpecHash": "OSxx0vscTSo=",
   "success": true,
-  "projectFilePath": "/Users/toshimi/Develop/MSLearn/mslearn-ai-services-jp/Labfiles/01-use-azure-ai-services/C-Sharp/sdk-client/sdk-client.csproj",
+  "projectFilePath": "/Users/toshimi/Develop/MSLearn/mslearn-ai-services.ja-jp/Labfiles/01-use-azure-ai-services/C-Sharp/sdk-client/sdk-client.csproj",
   "expectedPackageFiles": [
     "/Users/toshimi/.nuget/packages/azure.ai.textanalytics/5.3.0/azure.ai.textanalytics.5.3.0.nupkg.sha512",
     "/Users/toshimi/.nuget/packages/azure.core/1.33.0/azure.core.1.33.0.nupkg.sha512",
@@ -21,9 +21,9 @@
     "/Users/toshimi/.nuget/packages/system.text.encodings.web/4.7.2/system.text.encodings.web.4.7.2.nupkg.sha512",
     "/Users/toshimi/.nuget/packages/system.text.json/4.7.2/system.text.json.4.7.2.nupkg.sha512",
     "/Users/toshimi/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "/Users/toshimi/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
-    "/Users/toshimi/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.14/microsoft.netcore.app.host.osx-arm64.7.0.14.nupkg.sha512",
-    "/Users/toshimi/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512"
+    "/Users/toshimi/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/toshimi/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/toshimi/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.20/microsoft.netcore.app.host.osx-arm64.7.0.20.nupkg.sha512"
   ],
   "logs": []
 }

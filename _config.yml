@@ -1,10 +1,16 @@
 remote_theme: MicrosoftLearning/Jekyll-Theme
+# remote_theme: just-the-docs/just-the-docs@v0.10.0
+# theme: jekyll-theme-minimal
 exclude:
   - readme.md
   - .github/
 header_pages:
   - index.html
+<<<<<<< HEAD
 author: Toshimi Hatanaka (Microsoft Worldwide Learning)
+=======
+author: Toshimi Hatanaka
+>>>>>>> 1eb15dfcdb4ae7b88793057f747b9eee90edbca0
 twitter_username: toshimin8
 github_username:  mocaomochi
 plugins:

@@ -632,11 +632,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/toshimi/Develop/MSLearn/mslearn-ai-services-jp/Labfiles/01-use-azure-ai-services/C-Sharp/sdk-client/sdk-client.csproj",
+      "projectUniqueName": "/Users/toshimi/Develop/MSLearn/mslearn-ai-services.ja-jp/Labfiles/01-use-azure-ai-services/C-Sharp/sdk-client/sdk-client.csproj",
       "projectName": "sdk-client",
-      "projectPath": "/Users/toshimi/Develop/MSLearn/mslearn-ai-services-jp/Labfiles/01-use-azure-ai-services/C-Sharp/sdk-client/sdk-client.csproj",
+      "projectPath": "/Users/toshimi/Develop/MSLearn/mslearn-ai-services.ja-jp/Labfiles/01-use-azure-ai-services/C-Sharp/sdk-client/sdk-client.csproj",
       "packagesPath": "/Users/toshimi/.nuget/packages/",
-      "outputPath": "/Users/toshimi/Develop/MSLearn/mslearn-ai-services-jp/Labfiles/01-use-azure-ai-services/C-Sharp/sdk-client/obj/",
+      "outputPath": "/Users/toshimi/Develop/MSLearn/mslearn-ai-services.ja-jp/Labfiles/01-use-azure-ai-services/C-Sharp/sdk-client/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/toshimi/.nuget/NuGet/NuGet.Config"
@@ -657,6 +657,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -686,15 +691,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.20, 7.0.20]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.osx-arm64",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.20, 7.0.20]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.20, 7.0.20]"
           }
         ],
         "frameworkReferences": {
@@ -702,7 +707,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.404/RuntimeIdentifierGraph.json"
       }
     }
   }
