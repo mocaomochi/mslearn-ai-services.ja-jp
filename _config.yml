@@ -5,7 +5,7 @@ exclude:
   - .github/
 header_pages:
   - index.html
-author: Toshimi Hatanaka (Microsoft WWL)
+author: Toshimi Hatanaka
 twitter_username: toshimin8
 github_username:  mocaomochi
 plugins:
@@ -16,3 +16,5 @@ markdown: kramdown
 kramdown:
    syntax_highlighter_opts:
       disable : true
+# For copy button on code
+enable_copy_code_button: true
