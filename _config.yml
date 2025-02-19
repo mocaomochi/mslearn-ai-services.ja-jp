@@ -17,11 +17,6 @@ kramdown:
    syntax_highlighter_opts:
       disable : true
 
-#title: Just the Docs
-#description: A Jekyll theme for documentation
-#baseurl: "" # the subpath of your site, e.g. /blog
-#url: "https://just-the-docs.com" # the base hostname & protocol for your site, e.g. http://example.com
-#repository: just-the-docs/just-the-docs # for github-metadata
 
 permalink: pretty
 
@@ -186,12 +181,6 @@ callouts:
 # Note: the main Just the Docs site does *not* use Google Analytics.
 # ga_tracking: UA-2709176-10,G-5FG1HLH3XQ
 # ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
-
-plugins:
-  - jekyll-seo-tag
-  - jekyll-github-metadata
-  - jekyll-include-cache
-  - jekyll-sitemap
 
 kramdown:
   syntax_highlighter_opts:
