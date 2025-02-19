@@ -8,10 +8,10 @@ header_pages:
 author: Toshimi Hatanaka (Microsoft WWL)
 twitter_username: toshimin8
 github_username:  mocaomochi
-plugins:
-  - jekyll-sitemap
-  - jekyll-mentions
-  - jemoji
+#plugins:
+#  - jekyll-sitemap
+#  - jekyll-mentions
+#  - jemoji
 markdown: kramdown
 kramdown:
    syntax_highlighter_opts:
