@@ -1,5 +1,5 @@
 # remote_theme: MicrosoftLearning/Jekyll-Theme
-remote_theme: documentation
+remote_theme: just-the-docs/just-the-docs
 exclude:
   - readme.md
   - .github/
