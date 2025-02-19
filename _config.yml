@@ -4,9 +4,9 @@ exclude:
   - .github/
 header_pages:
   - index.html
-author: Microsoft Learning
-twitter_username: mslearning
-github_username:  MicrosoftLearning
+author: Toshimi Hatanaka (Microsoft Worldwide Learning)
+twitter_username: toshimin8
+github_username:  mocaomochi
 plugins:
   - jekyll-sitemap
   - jekyll-mentions
